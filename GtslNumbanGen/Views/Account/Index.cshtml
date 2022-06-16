@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Account>
+
+
+<section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+	<div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+	  <div class="carousel-item active">
+		<div class="carousel-container">
+		  <p class="animate__animated fanimate__adeInUp">Upload Csv File</p>
+		  <form asp-controller="Account" asp-action="Index" method="post" enctype="multipart/form-data" id="upload">
+			<div class="mt-2">
+				<input type="file" accept=".csv, .xls, .xlsx" name="file" class=" mb-2" />
+				<button type="submit" class="btn-get-started animate__animated animate__fadeInUp scrollto"> Upload </button>
+			   
+			</div>
+		   </form>
+		</div>
+	  </div>
+
+
+	</div>
+
+	<svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+	  <defs>
+		<path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+	  </defs>
+	  <g class="wave1">
+		<use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)" />
+	  </g>
+	  <g class="wave2">
+		<use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)" />
+	  </g>
+	  <g class="wave3">
+		<use xlink:href="#wave-path" x="50" y="9" fill="#fff" />
+	  </g>
+	</svg>
+  </section>
+
+
+ @if (Model.Count() > 0)
+{
+	<hr />
+	<div class="container mb-3 mt-3">
+
+		
+		<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+			<thead>
+				<tr>
+					<th>Serial No</th>
+					<th>Account No </th>
+					<th>Account No(Old)</th>
+					<th>Account Name</th>
+					<th>Nuban No</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var account in Model)
+				{
+					<tr>
+						<td>@account.SerialNo</td>
+						<td>@account.AccountNo</td>
+						<td>@account.OldAccountNo</td>
+						<td>@account.AccountName</td>
+						<td>@account.NubanNo</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var table = $('#example').DataTable( {
+			lengthChange: false,
+			buttons: [ 'copy', 'excel', 'csv', 'pdf', 'colvis' ]
+		} );
+	 
+		table.buttons().container()
+			.appendTo( '#example_wrapper .col-md-6:eq(0)' );
+	} );
+	 </script>

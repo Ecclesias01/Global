@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "45Yg55QsaTd9NLM5QpMK/T6oCbezLeTx1VlaoCOPmQ3S3cp8w0kq5bYPLtuvTao5sfAer9w6m+D4dq9DZ9Viig==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Afola\\source\\repos\\GtslNumbanGen\\GtslNumbanGen\\GtslNumbanGen.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Afola\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
+    "C:\\Users\\Afola\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512",
+    "C:\\Users\\Afola\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
